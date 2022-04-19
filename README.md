@@ -1,1 +1,1 @@
-# ALX simple peintf project. 
+# ALX simple printf project. 
