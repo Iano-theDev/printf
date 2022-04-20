@@ -1,3 +1,3 @@
 # ALX simple printf project.
-by Josh and an
+by Josh and Ian
 other aspect is pair programming 
