@@ -1,57 +1,61 @@
-
 #include "main.h"
 
 /**
- * _printf - Function that prints formatted output.
+ * _printf - prints a formatted output
+ * @format: is a character string
  *
- * @format: a string composed of zero or more characters to print or use as
- * directives that handle subsequent arguments and special characters.
- *
- * Description: This function can take a variable number and type of arguments
- * that should be printed to standard output.
- *
- * Return: Count of the characters printed
+ * Return: Number of characters printed
  */
 int _printf(const char *format, ...)
 {
+	int i, str_len;
+	int num_char = 0;
+	char *s, w, n = '\n';
 	va_list args;
-	int i = 0, chars_printed = 0;
 
+	if (!format)
+		return (-1);
 	va_start(args, format);
-	while (format && format[i])
+
+	for (i = 0; format[i]; i++)
 	{
-		if (format[i] != '%')
+	if (format[i] == '%')
+	{
+		if (format[i + 1] == 's')
 		{
-			chars_printed += _putchar(format[i]);
+			s = va_arg(args, char *);
+			str_len = _strlen(s);
+			write(1, s, str_len);
+			num_char += str_len, i++;
 		}
-		else if (format[i + 1])
+		else if (format[i + 1] == 'c')
 		{
+			w = va_arg(args, int);
+			write(1, &w, 1);
+			num_char++, i++;
+		}
+		else if (format[i + 1] == 'd' || format[i + 1] == 'i')
+		{
+			write_int(va_arg(args, int));
 			i++;
-			if (format[i] == 'c' || format[i] == 's')
-				chars_printed += format[i] == 'c' ? _putchar(va_arg(args, int)) :
-				print_string(va_arg(args, char *));
-			else if (format[i] == 'd' || format[i] == 'i')
-				chars_printed += print_num(va_arg(args, int));
-			else if (format[i] == 'b')
-				chars_printed += print_binary((unsigned int)va_arg(args, int));
-			else if (format[i] == 'r')
-				chars_printed += print_reverse(va_arg(args, char *));
-			else if (format[i] == 'R')
-				chars_printed += print_rot13(va_arg(args, char *));
-			else if (format[i] == 'o' || format[i] == 'u' ||
-			format[i] == 'x' || format[i] == 'X')
-				chars_printed += print_odh(format[i], (unsigned int)va_arg(args, int));
-			else if (format[i] == 'S')
-				chars_printed += print_S(va_arg(args, char *));
-			else if (format[i] == 'p')
-				chars_printed += print_pointer(va_arg(args, void *));
-			else
-				chars_printed += print_unknown_spec(format[i]);
 		}
-		i++;
+		else if (format[i + 1] == 'b')
+		{
+			bin(va_arg(args, int));
+			i++;
+		}
+	}
+	else if (format[i] == '\n')
+	{
+		write(1, &n, 1);
+		num_char++;
+	}
+	else
+	{
+		write(1, &format[i], 1);
+		num_char++;
+	}
 	}
 	va_end(args);
-	return (chars_printed);
+	return (num_char);
 }
-
-
