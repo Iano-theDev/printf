@@ -11,5 +11,6 @@ int print_str(char *str);
 int print_num(int n);
 int get_abs(int n);
 int process_sp(char spec, va_list ap);
+void print_bin(int n);
 
 #endif
