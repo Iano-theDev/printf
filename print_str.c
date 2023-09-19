@@ -9,10 +9,14 @@ int print_str(char *str)
 {
 	unsigned int i = 0;
 
-	while (str[i] != '\0')
+	if (str)
 	{
-		_putchar(str[i]);
-		i++;
+		while (str[i] != '\0')
+		{
+			_putchar(str[i]);
+			i++;
+		}
+		return (i);
 	}
 	return (i);
 }

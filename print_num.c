@@ -25,6 +25,8 @@ int print_num(int n)
 			b /= 10;
 
 		str = malloc((i + 1) * sizeof(char));
+		if (!str)
+			return (count);
 
 		while (i > 0)
 		{
