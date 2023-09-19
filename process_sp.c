@@ -36,6 +36,13 @@ int process_sp(char spec, va_list ap)
 			count += print_num(num);
 			break;
 		}
+		case 'b':
+		{
+			int num = va_arg(ap, int);
+
+			print_bin(num);
+			break;
+		}
 		}
 		return (count);
 	}
