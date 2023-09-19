@@ -5,7 +5,7 @@
  * @str: string pointer
  * Return: void
  */
-void print_str(char *str)
+int print_str(char *str)
 {
 	unsigned int i = 0;
 
@@ -14,4 +14,5 @@ void print_str(char *str)
 		_putchar(str[i]);
 		i++;
 	}
+	return (i);
 }

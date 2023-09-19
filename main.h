@@ -4,10 +4,12 @@
 #include <stdarg.h>
 
 int _putchar(char c);
-int _printf(char *format, ...);
+int _printf(const char *format, ...);
 int _strlen(char *s);
 char *_strncat(char *dest, char *src, int n);
-void print_str(char *str);
-void process_sp(char spec, va_list ap);
+int print_str(char *str);
+int print_num(int n);
+int get_abs(int n);
+int process_sp(char spec, va_list ap);
 
 #endif
