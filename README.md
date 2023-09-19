@@ -1,7 +1,6 @@
 # A remake of C standard library function printf()
 
-# Authors
+## printf
+### Authors
 * Ian Kamande
 * Lucia Waweru
-
-
