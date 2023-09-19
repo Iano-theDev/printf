@@ -11,12 +11,10 @@ void print_bin(int n)
 	{
 		if (n == 0)
 			return;
-		else
-		{
-			int i = n % 2;
 
-			print_bin(n / 2);
-			_putchar(i + '0');
-		}
+		int i = n % 2;
+
+		print_bin(n / 2);
+		_putchar(i + '0');
 	}
 }
