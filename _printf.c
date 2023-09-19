@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdarg.h>
-#include <stdio.h>
 
 /**
  * _printf - prints strings to the standard output
@@ -8,7 +7,7 @@
  * Return: number of characters printed
  */
 
-int _printf(char *format, ...)
+int _printf(const char *format, ...)
 {
 	unsigned int i, count = 0;
 
@@ -23,18 +22,19 @@ int _printf(char *format, ...)
 			char c = format[i];
 
 			if (c == '\n')
-				_putchar('\n');
+				count += _putchar('\n');
 
-			if (c == '%')
+			else if (c == '%')
 			{
 				char spec  = format[i + 1];
 
-				count++;
-				process_sp(spec, ap);
+				count += process_sp(spec, ap);
 				i++;
 			}
 			else
-				_putchar(c);
+			{
+				count += _putchar(c);
+			}
 		}
 		return (count);
 	}

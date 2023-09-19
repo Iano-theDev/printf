@@ -3,10 +3,7 @@
 int main(void)
 {
 	char *name = "Ian";
-	int age = 25;
-	char year = 'Y';
-	char colon = ':';
 	
-	_printf("Hello %s!, you are %c%c%d", name, year, colon, age);
+	_printf("%s\n", name);
 	return (0);
 }
