@@ -7,12 +7,14 @@
  */
 void print_bin(int n)
 {
+	int i;
+	
 	if (n)
 	{
 		if (n == 0)
 			return;
-
-		int i = n % 2;
+		
+		i = n % 2;
 
 		print_bin(n / 2);
 		_putchar(i + '0');
