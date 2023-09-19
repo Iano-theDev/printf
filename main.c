@@ -3,7 +3,9 @@
 int main(void)
 {
 	char *name = "Ian";
-	
-	_printf("%s\n", name);
+	int age = 25;
+	char *day = "today";
+
+	_printf("Hello %s, you are %d years %s\n", name, age, day);
 	return (0);
 }

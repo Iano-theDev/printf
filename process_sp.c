@@ -11,29 +11,33 @@ int process_sp(char spec, va_list ap)
 {
 	int count = 0;
 
-	switch (spec)
+	if (spec)
 	{
-	case 's':
-	{
-			char *str = va_arg(ap, char*);
+		switch (spec)
+		{
+		case 's':
+		{
+			char *str = va_arg(ap, char *);
 
 			count += print_str(str);
 			break;
-	}
-	case 'c':
-	{
+		}
+		case 'c':
+		{
 			char temp = va_arg(ap, int);
 
 			count += _putchar(temp);
 			break;
-	}
-	case 'd':
-	{
+		}
+		case 'd':
+		{
 			int num = va_arg(ap, int);
 
 			count += print_num(num);
 			break;
-	}
+		}
+		}
+		return (count);
 	}
 	return (count);
 }
