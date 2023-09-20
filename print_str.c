@@ -7,7 +7,8 @@
  */
 int print_str(char *str)
 {
-	unsigned int i = 0;
+	unsigned int i = 0, j = 0;
+	char *null_str = "(null)";
 
 	if (str)
 	{
@@ -18,5 +19,9 @@ int print_str(char *str)
 		}
 		return (i);
 	}
-	return (i);
+	for (j = 0; null_str[j] != '\0'; j++)
+	{
+		_putchar(null_str[j]);
+	}
+	return (j);
 }
