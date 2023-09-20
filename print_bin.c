@@ -8,12 +8,11 @@
 void print_bin(int n)
 {
 	int i;
-	
+
 	if (n)
 	{
 		if (n == 0)
 			return;
-		
 		i = n % 2;
 
 		print_bin(n / 2);
