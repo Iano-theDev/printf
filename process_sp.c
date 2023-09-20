@@ -29,6 +29,11 @@ int process_sp(char spec, va_list ap)
 			count += _putchar(temp);
 			break;
 		}
+		case '%':
+		{
+			count += _putchar('%');
+			break;
+		}
 		case 'd':
 		{
 			int num = va_arg(ap, int);
