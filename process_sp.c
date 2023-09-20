@@ -48,6 +48,12 @@ int process_sp(char spec, va_list ap)
 			print_bin(num);
 			break;
 		}
+		default:
+		{
+			count += _putchar('%');
+			count += _putchar(spec);
+			break;
+		}
 		}
 		return (count);
 	}
